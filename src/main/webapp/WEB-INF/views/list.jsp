@@ -10,7 +10,8 @@
 <body>
 
 	<h1>방명록</h1>
-	<br> 방명록 전체 수 : ${count }
+	<br> 방명록 전체 수 : ${count}
+	<br> 방문한 수 : ${cookieCount}
 	<br>
 	<br>
 
@@ -20,7 +21,9 @@ ${guestbook.id }<br>
 ${guestbook.name }<br>
 ${guestbook.content }<br>
 ${guestbook.regdate }<br>
-
+	<c:if test="${sessionScope.isAdmin == 'true'}">
+		<a href="delete?id=${guestbook.id}">삭제</a><br><br>
+	</c:if>
 	</c:forEach>
 	<br>
 

@@ -46,6 +46,7 @@ public class GuestbookServiceImpl implements GuestbookService {
 		//guestbook.setRegdate(new Date());
 		Long id = guestbookDao.insert(guestbook);
 		guestbook.setId(id);
+		guestbook.setRegdate(new Date());
 		
 		Log log = new Log();
 		log.setIp(ip);
