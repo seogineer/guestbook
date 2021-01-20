@@ -31,7 +31,7 @@ public class GuestbookAdminController {
 	}
 	
 	@GetMapping(path="/logout")
-	public String login(HttpSession session) {
+	public String logout(HttpSession session) {
 		session.removeAttribute("isAdmin");
 		return "redirect:/list";
 	}
