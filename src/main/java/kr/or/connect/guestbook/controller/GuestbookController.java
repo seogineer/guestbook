@@ -18,6 +18,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.SessionAttribute;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import kr.or.connect.guestbook.argumentresolver.HeaderInfo;
 import kr.or.connect.guestbook.dto.Guestbook;
 import kr.or.connect.guestbook.service.GuestbookService;
 
@@ -30,7 +31,11 @@ public class GuestbookController {
 	public String list(@RequestParam(name="start", required=false, defaultValue="0") int start, 
 			ModelMap model,
 			@CookieValue(value="count", defaultValue="0", required=true) String value,
-			HttpServletResponse response) {
+			HttpServletResponse response, HeaderInfo headerInfo) {
+		
+		System.out.println("--------------------------------------------------");
+		System.out.println(headerInfo.get("user-agent"));
+		System.out.println("--------------------------------------------------");
 		
 		try {
 			int i = Integer.parseInt(value);
